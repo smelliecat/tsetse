@@ -1,6 +1,6 @@
 import numpy as np
 
-class Tahn:
+class Tanh:
     """
     Implements the hyperbolic tangent (tanh) activation function.
     

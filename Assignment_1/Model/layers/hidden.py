@@ -12,8 +12,10 @@ class HiddenLayer(LinearLayer):
 
         if activation == 'Sigmoid':
             self.activation = Sigmoid(self)
+
         elif activation == 'Tahn':
             self.activation = Tahn(self)
+            
         else:
             self.activation = ReLU(self)
 
