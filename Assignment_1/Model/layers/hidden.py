@@ -4,7 +4,7 @@ from layers.linear import LinearLayer
 
 from activation.relu import ReLU
 from activation.sigmoid import Sigmoid
-from activation.tahn import Tahn
+from activation.tanh import Tanh
 
 class HiddenLayer(LinearLayer):
     def __init__(self, input_dimension, output_dimension, activation='ReLU') -> None:
@@ -15,7 +15,7 @@ class HiddenLayer(LinearLayer):
 
         elif activation == 'Tahn':
             self.activation = Tahn(self)
-            
+
         else:
             self.activation = ReLU(self)
 
