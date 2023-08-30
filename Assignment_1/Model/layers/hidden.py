@@ -7,5 +7,22 @@ from activation.sigmoid import Sigmoid
 from activation.tahn import Tahn
 
 class HiddenLayer(LinearLayer):
-    def __init__(self, input_dimension, output_dimension) -> None:
+    def __init__(self, input_dimension, output_dimension, activation='ReLU') -> None:
         super().__init__(input_dimension, output_dimension)
+
+        if activation == 'Sigmoid':
+            self.activation = Sigmoid(self)
+        elif activation == 'Tahn':
+            self.activation = Tahn(self)
+        else:
+            self.activation = ReLU(self)
+
+    def forward(self):
+        _ = super().forward()
+        self.activated_output = self.activation.forward()
+        return self.activated_output
+    
+    def backward(self, downstream):
+        activation_grad = self.activation.backward(downstream)
+        super().backward(activation_grad)
+        
