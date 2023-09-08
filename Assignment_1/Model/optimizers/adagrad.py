@@ -1,5 +1,5 @@
 import numpy as np
-from layers.linear import LinearLayer
+from Model.layers.linear import LinearLayer
 from typing import List
 
 class AdaGradSolver:

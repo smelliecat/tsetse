@@ -1,6 +1,6 @@
 import numpy as np
 from typing import List
-from layers.linear import LinearLayer
+from Model.layers.linear import LinearLayer
 
 class AdamSolver:
     """
@@ -20,7 +20,7 @@ class AdamSolver:
     """
 
     def __init__(self, learning_rate:float, modules: List[LinearLayer], beta1: float=0.9, beta2: float=0.999, epsilon: float=1e-8):
-       self.learning_rate = learning_rate
+        self.learning_rate = learning_rate
         self.modules = modules
         self.beta1 = beta1
         self.beta2 = beta2
@@ -42,7 +42,7 @@ class AdamSolver:
             m_m_hat = module.m / (1 - self.beta1**self.t)
             m_v_hat = module.v / (1 - self.beta2**self.t)
 
-            module.W -= self.lr * m_m_hat / (np.sqrt(m_v_hat) + self.epsilon)
+            module.W -= self.learning_rate * m_m_hat / (np.sqrt(m_v_hat) + self.epsilon)
             pass
         pass
     pass

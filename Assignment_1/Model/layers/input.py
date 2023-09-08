@@ -17,19 +17,24 @@ class InputLayer:
                               are performed in the input layer.
     """
      
-    def __init__(self, input_dimension) -> None:
-        self.W = np.eye(input_dimension)
-        self.output_dimension = np.array[None, input_dimension]
+    def __init__(self, data_layer) -> None:
+        # self.W = np.eye(input_dimension)
+        num_data, num_in_features = (data_layer.output_dimension)
+        self.output_dimension = np.array([num_data, num_in_features])
+        self.data_layer = data_layer
     
-    def forward(self, input_data):
+    def forward(self):
         """
         """
-        self.input_array = input_data
-        self.output_array[0] = self.input_array.shape[0]
-
+        self.input_array = self.data_layer.forward()
+        # self.output_dimension[0] = self.input_array.shape[0]
+        print("HERE")
+        print(self.output_dimension)
         return self.input_array
 
     def backward(self, downstream):
         """
         """
         pass
+
+

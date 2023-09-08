@@ -1,6 +1,6 @@
 import numpy as np
 from typing import List
-from layers.linear import LinearLayer
+from Model.layers.linear import LinearLayer
 class SGDSolver:
     """
     Implements the Stochastic Gradient Descent (SGD) optimization algorithm.
@@ -21,12 +21,14 @@ class SGDSolver:
     def __init__(self, learning_rate:float, modules:List[LinearLayer]):
         self.learning_rate = learning_rate
         self.modules = modules
+        print('this', modules)
 
     def step(self):
         """
         Perform a single optimization step, updating the parameters of all layers in 'modules'.
         """
         for module in self.modules:
+            print('HERE IS THE SGD: ', module)
             module.W -= self.learning_rate * module.G.mean(axis=0)
             pass
         pass

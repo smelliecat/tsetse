@@ -1,6 +1,6 @@
 import numpy as np
 
-from layers.linear import LinearLayer
+from Model.layers.linear import LinearLayer
 
 from activation.relu import ReLU
 from activation.sigmoid import Sigmoid
@@ -17,14 +17,15 @@ class HiddenLayer(LinearLayer):
             self.activation = Tanh(self)
 
         else:
-            self.activation = ReLU(self)
+            self.activation = ReLU()
 
     def forward(self):
-        _ = super().forward()
-        self.activated_output = self.activation.forward()
-        return self.activated_output
+        _out = super().forward()
+        self.activated_output = self.activation.forward(_out)
+        return _out
     
     def backward(self, downstream):
+        print("Shape of downstream in HiddenLayer:", downstream.shape)
         activation_grad = self.activation.backward(downstream)
         super().backward(activation_grad)
         

@@ -1,6 +1,6 @@
 import numpy as np
 from typing import List
-from layers.linear import LinearLayer
+from Model.layers.linear import LinearLayer
 
 class RMSPropSolver:
     """

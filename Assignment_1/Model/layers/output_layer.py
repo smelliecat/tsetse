@@ -1,6 +1,6 @@
 import numpy as np
 
-from layers.linear import LinearLayer
+from Model.layers.linear import LinearLayer
 
 # from activation.relu import ReLU
 from activation.sigmoid import Sigmoid
@@ -20,20 +20,20 @@ class OutputLayer(LinearLayer):
         backward(dwnstrm): Performs the backward pass to compute the gradients.
     """
 
-    def __init__(self, in_layer, num_out_features, activation='Linear'):
-        super().__init__(in_layer, num_out_features)
+    def __init__(self, input_layer, num_out_features, activation='Linear'):
+        super().__init__(input_layer, num_out_features)
         if activation == 'Sigmoid':
             self.activation = Sigmoid(self)
         elif activation == 'Tanh':
             self.activation = Tanh(self)
-        elif activation == 'Linear':
-            self.activation = self
+        # elif activation == 'Linear':
+        #     self.activation = 
 
     def forward(self):
-        _ = super().forward()
-        self.activated_output = self.activation.forward()
-        return self.activated_output
+        _out = super().forward()
+        # self.activated_output = self.activation.forward()
+        return _out
 
-    def backward(self, dwnstrm):
-        activation_grad = self.activation.backward(dwnstrm)
-        super().backward(activation_grad)
+    def backward(self, downstream):
+        # activation_grad = self.activation.backward(downstream)
+        super().backward(downstream)
