@@ -15,18 +15,29 @@ class Tanh:
                            which is then passed back to the previous layers.
     """
 
-    def __init__(self, input_layer) -> None:
-        self.input_layer = input_layer
+    @staticmethod
+    def forward(input_array):
+        # Apply the tahn activation function to the output of the input layer. 
+        # You can NOT use the np.tahn function.
+        output_array = ...
+        return output_array
     
-    def forward(self):
-        self.input_array = self.input_layer.forward()
-        self.tahn_output = (np.exp(self.input_array) - (np.exp(-self.input_array)) / np.exp(self.input_array) + (np.exp(-self.input_array)))
-        return self.tahn_output
+    @staticmethod
+    def backward(downstream):
+        # Compute the gradient of the loss with respect to the input
+        input_grad = ...
+        return input_grad
 
-    def backward(self, downstream):
-        tanh_grad = 1 - self.tahn_output**2
-        input_grad = downstream * tanh_grad
-        self.input_layer.backward(input_grad)
+    
+    # def forward(self):
+    #     self.input_array = self.input_layer.forward()
+    #     self.tahn_output = (np.exp(self.input_array) - (np.exp(-self.input_array)) / np.exp(self.input_array) + (np.exp(-self.input_array)))
+    #     return self.tahn_output
+
+    # def backward(self, downstream):
+    #     tanh_grad = 1 - self.tahn_output**2
+    #     input_grad = downstream * tanh_grad
+    #     self.input_layer.backward(input_grad)
 
 
 

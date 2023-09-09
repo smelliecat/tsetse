@@ -19,17 +19,24 @@ class SGDSolver:
                        All layers should have a parent class of LinearLayer.
     """
     def __init__(self, learning_rate:float, modules:List[LinearLayer]):
-        self.learning_rate = learning_rate
-        self.modules = modules
-        print('this', modules)
+        # TODO: Initialize the learning_rate and modules attributes. Replace 'None' with appropriate code.
+        self.learning_rate = None
+        self.modules = None
 
     def step(self):
         """
         Perform a single optimization step, updating the parameters of all layers in 'modules'.
         """
+
+        """
+        Perform a single optimization step.
+        
+        Description:
+        ------------
+        The method should update the parameters of all layers in the 'modules' list according
+        to the SGD update rule.
+        """
+        
+
         for module in self.modules:
-            print('HERE IS THE SGD: ', module)
-            module.W -= self.learning_rate * module.G.mean(axis=0)
-            pass
-        pass
-    pass
+            # TODO: Loop through each module in self.modules and update its weight `W` using its gradient `G`.

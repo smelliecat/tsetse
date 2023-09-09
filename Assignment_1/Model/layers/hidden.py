@@ -11,10 +11,10 @@ class HiddenLayer(LinearLayer):
         super().__init__(input_dimension, output_dimension)
 
         if activation == 'Sigmoid':
-            self.activation = Sigmoid(self)
+            self.activation = Sigmoid()
 
         elif activation == 'Tahn':
-            self.activation = Tanh(self)
+            self.activation = Tanh()
 
         else:
             self.activation = ReLU()

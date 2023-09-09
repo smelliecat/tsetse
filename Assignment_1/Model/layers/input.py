@@ -1,6 +1,7 @@
 import numpy as np
-# from linear import LinearLayer
-
+# -------------------------------
+# DO NOT MODIFY THIS FILE!!!!!  |
+# -------------------------------
 class InputLayer:
     """
     Represents the input layer of a neural network. The input layer essentially acts as
@@ -18,22 +19,47 @@ class InputLayer:
     """
      
     def __init__(self, data_layer) -> None:
-        # self.W = np.eye(input_dimension)
+        """
+        Initialize the InputLayer with data dimensions.
+
+        Parameters:
+        -----------
+            data_layer: The layer that feeds data into this InputLayer.
+        """
+        # -------------------------------
+        # DO NOT MODIFY THIS FILE!!!!!  |
+        # -------------------------------
         num_data, num_in_features = (data_layer.output_dimension)
         self.output_dimension = np.array([num_data, num_in_features])
         self.data_layer = data_layer
     
     def forward(self):
         """
+        Performs the forward pass by simply passing the input data through the layer without altering it.
+        
+        Returns:
+        --------
+            numpy array: The input data passed through.
         """
+        # -------------------------------
+        # DO NOT MODIFY THIS FILE!!!!!  |
+        # -------------------------------
         self.input_array = self.data_layer.forward()
-        # self.output_dimension[0] = self.input_array.shape[0]
-        print("HERE")
         print(self.output_dimension)
         return self.input_array
 
     def backward(self, downstream):
+        # -------------------------------
+        # DO NOT MODIFY THIS FILE!!!!!  |
+        # -------------------------------
         """
+        Placeholder function for backward pass.
+        
+        As this is an InputLayer, no actual backward computations are performed.
+
+        Parameters:
+        -----------
+            downstream: The gradient received from the downstream layer, ignored in InputLayer.
         """
         pass
 

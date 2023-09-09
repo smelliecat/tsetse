@@ -14,19 +14,17 @@ class Sigmoid:
         backward(downstream): Computes the gradient of the loss with respect to the input, which is then passed back to the previous layers.
     """
 
-    def __init__(self, input_layer) -> None:
-        self.input_layer = input_layer
+    @staticmethod
+    def forward(input_array):
+        # Apply the Sigmoid activation function to the output of the input layer
+        output_array = ...
+        return output_array
     
-    def forward(self):
-        self.input_array = self.input_layer.forward()
-        sigmoid = 1 / (1 + np.exp(-self.input_array))
-        return sigmoid
+    @staticmethod
+    def backward(downstream):
+        # Compute the gradient of the loss with respect to the input
+        input_grad = ...
+        return input_grad
 
-    def backward(self, downstream):
-        input_grad = downstream * np.exp(-np.maximum(self.input_array, 0)) / (
-                    (1 + np.exp(-self.input_array)) * (1 + np.exp(-np.abs(self.input_array))))
-        self.input_layer.backward(input_grad)
-    
-    pass
 
 
