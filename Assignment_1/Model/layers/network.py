@@ -34,18 +34,7 @@ class ModuleList(collections.abc.MutableSequence):
         self.list.insert(i, v)
         pass
 
-    # def get_modules_with_parameters(self):
-    #     modules_with_parameters = []
-    #     for mod in self.list:
-    #         print('LAYES:', mod)
-    #         if is_modules_with_parameters(mod):
-    #             print('Friiiii', mod)
-    #             modules_with_parameters.append(mod)
-    #             pass
-    #         pass
-    #     print(modules_with_parameters)
-    #     return modules_with_parameters
-    
+ 
     def get_modules_with_parameters(self):
         modules_with_parameters_list = []
         for mod in self.modules_with_parameters:
@@ -71,16 +60,6 @@ class BaseNetwork:
 
     def get_output_layer(self):
         return self.output_layer
-
-    # def __setattr__(self, name, value):
-    #     if not hasattr(self, "initialized") or (not self.initialized):
-    #         raise RuntimeError("You must call super().__init__() before assigning any layer in __init__().")
-    #     if is_modules_with_parameters(value) or isinstance(value, ModuleList):
-    #         self.modules_with_parameters.append(value)
-    #         pass
-
-    #     super().__setattr__(name, value)
-    #     pass
 
     def __setattr__(self, name, value):
         print(f"__setattr__ called with name: {name} and value: {value} type: {type(value)}")

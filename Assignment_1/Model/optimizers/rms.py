@@ -32,8 +32,13 @@ class RMSPropSolver:
         Perform a single optimization step, updating the parameters of all layers in 'modules'.
         """
         for module in self.modules:
-            module.G_squared_moving_avg = self.beta * module.G_squared_moving_avg + (1 - self.beta) * module.G.mean(axis=0)**2
-            module.W -= self.lr * module.G.mean(axis=0) / (np.sqrt(module.G_squared_moving_avg) + self.epsilon)
+            # TODO: Update the moving average of the squared gradient (G_squared_moving_avg) for each parameter.
+            # The formula uses 'beta' for the decay rate and takes into account the square of the mean gradient for the current batch.
+            module.G_squared_moving_avg = ...
+            # TODO: Update the weights (W) using the RMSProp update rule.
+            # The update divides the learning rate-scaled mean gradient by the square root of the moving average of the squared gradient.
+            # We add 'epsilon' to the denominator to avoid division by zero.
+            module.W = ...
             pass
         pass
     pass

@@ -20,8 +20,8 @@ class SGDSolver:
     """
     def __init__(self, learning_rate:float, modules:List[LinearLayer]):
         # TODO: Initialize the learning_rate and modules attributes. Replace 'None' with appropriate code.
-        self.learning_rate = None
-        self.modules = None
+        self.learning_rate = learning_rate
+        self.modules = modules
 
     def step(self):
         """
@@ -40,3 +40,5 @@ class SGDSolver:
 
         for module in self.modules:
             # TODO: Loop through each module in self.modules and update its weight `W` using its gradient `G`.
+            module.W = ...
+            pass

@@ -27,8 +27,12 @@ class AdaGradSolver:
     def step(self):
         """Updates the weights of the modules using the AdaGrad algorithm."""
         for module in self.modules:
-            module.G_squared_accumulated += module.G.mean(axis=0)**2
-            module.W -= self.learning_rate * module.G.mean(axis=0) / (np.sqrt(module.G_squared_accumulated) + self.epsilon) 
+            # TODO: Update the accumulated squared gradient (G_squared_accumulated) for each parameter by adding the square of the mean gradient.
+            module.G_squared_accumulated = ...
+
+            # TODO: Update the weights (W) using the AdaGrad update rule. This adapts the learning rate for each parameter.
+            # The formula divides the mean gradient by the square root of the accumulated squared gradient, adding epsilon to prevent division by zero.
+            module.W = ...
             pass
         pass
     pass

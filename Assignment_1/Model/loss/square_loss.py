@@ -2,38 +2,46 @@ import numpy as np
 
 class SquareLoss:
     """
+    Implements the square loss function, commonly used in regression tasks.
+
+    The square loss is defined as: \( \frac{1}{2M} || X - Y ||^2 \)
+
+    Attributes:
+        input_layer: The preceding layer of the neural network.
+        labels: Ground truth labels.
+        num_data: Number of data samples.
+
+    Methods:
+        set_labels(labels): Method to set the labels.
+        forward(): Computes the forward pass, calculating the square loss.
+        backward(): Computes the backward pass, calculating the gradient of the loss.
     """
 
     def __init__(self, input_dimension, labels=None) -> None:
         self.input_layer = input_dimension
-        self.labels = labels
-        self.labels = self.labels.reshape(-1, 1)
+        # TODO: Initialize self.labels and reshape it to (-1, 1)
+        self.labels = ...
+        
     
     def set_labels(self,labels):
-        self.labels = labels
-
+        # TODO: Implement code to set self.labels
+        self.labels = ...
 
     def forward(self):
         """Loss value is (1/2M) || X-Y ||^2"""
-       
-
+        # TODO: Implement the forward pass to compute the loss.
         self.in_array = self.input_layer.forward()
-        # print("LOSSS num data ISSS: ", self.in_array.shape)
         self.num_data = self.in_array.shape[1]
-        # print("LOSSS num data ISSS: ", self.num_data)
-        self.out_array = (0.5 / self.num_data) * np.linalg.norm(self.in_array - self.labels) ** 2
-        # print(self.out_array.shape)
-        print("Shape of self.in_array:", self.in_array.shape)
-        print("Shape of self.labels:", self.labels.shape)
+        # TODO: Compute the result of mean squared error, and store it as self.out_array
+        self.out_array = ...
         return self.out_array
 
     def backward(self):
         """
         Gradient is (1/M) (X-Y), where N is the number of training samples
         """
-        print(self.labels.shape)
-        self.pass_back = (self.in_array - self.labels) / self.num_data
-        print("Shape of self.pass_back:", self.pass_back.shape)
+        # TODO: Compute grad of loss with respect to inputs, and hand this gradient backward to the layer behind
+        self.pass_back = ...
         self.input_layer.backward(self.pass_back)  # hand the gradient of loss with respect to inputs back to previous layer
         pass
     pass

@@ -36,13 +36,22 @@ class AdamSolver:
         """
         self.t += 1
         for module in self.modules:
-            module.m = self.beta1 * module.m + (1 - self.beta1) * module.G.mean(axis=0)
-            module.v = self.beta2 * module.v + (1 - self.beta2) * module.G.mean(axis=0)**2
+            # TODO: Update the first moment (m) and the second moment (v) for each parameter.
+            # 'beta1' and 'beta2' are the decay rates for the first and second moments, respectively.
+            # Note: 'module.G.mean(axis=0)' computes the mean gradient across the batch.
+            module.m = ...
+            module.v = ...
 
-            m_m_hat = module.m / (1 - self.beta1**self.t)
-            m_v_hat = module.v / (1 - self.beta2**self.t)
+            # TODO: Compute bias-corrected first moment (m_hat) and second moment (v_hat)
+            # 't' is the timestep which is incremented each time this method is called.
+            m_m_hat = ...
+            m_v_hat = ...
 
+            # DONE: Update the weights (W) using the bias-corrected moments.
+            # The update rule for Adam divides the learning rate-scaled m_hat by the square root of v_hat.
+            # We add 'epsilon' to the denominator to prevent division by zero.
             module.W -= self.learning_rate * m_m_hat / (np.sqrt(m_v_hat) + self.epsilon)
+
             pass
         pass
     pass

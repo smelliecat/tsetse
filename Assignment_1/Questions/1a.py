@@ -41,10 +41,8 @@ class Trainer:
     def net_setup(self, train_data):
         features, labels = train_data
         self.data_layer = Data(features)
-        print("data out dim in ney_setup", self.data_layer.output_dimension)
         self.network = self.define_net(self.data_layer)
         self.loss_layer = SquareLoss(self.network.get_output_layer(), labels=labels)
-        # self.optimizer = SGDSolver(Step_size, self.network.get_modules_with_parameters())
         self.optimizer = AdamSolver(Step_size, self.network.get_modules_with_parameters())
         return self.data_layer, self.network, self.loss_layer, self.optimizer
     
@@ -105,10 +103,7 @@ def main(test=False):
 
     else:
         # DO NOT CHANGE THIS BRANCH! This branch is used for autograder.
-        out = {
-            'trainer': trainer
-        }
-        return out
+        pass
 
 
 if __name__ == "__main__":

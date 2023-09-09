@@ -21,12 +21,12 @@ class ReLU:
 
     @staticmethod
     def forward(input_array):
-        # Apply the ReLU activation function to the output of the input layer
+        #TODO: Apply the ReLU activation function to the output of the input layer
         output_array = ...
         return output_array
     
     @staticmethod
     def backward(downstream):
-        # Compute the gradient of the loss with respect to the input
+        #TODO: Compute the gradient of the loss with respect to the input
         input_grad = ...
         return input_grad
