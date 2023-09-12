@@ -74,6 +74,10 @@ def q1_b():
     print(xtrain.shape, xtest.shape, ytrain.shape, ytest.shape)
     print(xtrain)
     print(ytrain)
+    return {
+        "train": (xtrain, ytrain),
+        "test": (xtest, ytest)
+    }
 
 
 
@@ -83,6 +87,10 @@ def q2_a():
     print(xtrain.shape, xtest.shape, ytrain.shape, ytest.shape)
     print(xtrain)
     print(ytrain)
+    return {
+        "train": (xtrain, ytrain),
+        "test": (xtest, ytest)
+    }
 
 
 def q2_b():
@@ -91,10 +99,8 @@ def q2_b():
     print(xtrain.shape, xtest.shape, ytrain.shape, ytest.shape)
     print(xtrain)
     print(ytrain)
+    return {
+        "train": (xtrain, ytrain),
+        "test": (xtest, ytest)
+    }
 
-
-
-q1_a()
-q1_b()
-q2_a()
-q2_b()
