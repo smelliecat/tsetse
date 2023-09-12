@@ -13,8 +13,8 @@ from Data.generator import q1
 from Model.evaluate.evaluate import evaluate_model
 
 
-Number_of_iterations = 300
-Step_size = 0.01
+Number_of_iterations = 300 # Experiment to pick your own number of ITERATIONS
+Step_size = 0.000001 # Experiment to pick your own STEP number
 
 class Network(BaseNetwork):
     def __init__(self, data_layer):
